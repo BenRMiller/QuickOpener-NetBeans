@@ -166,6 +166,11 @@
             <artifactId>org-netbeans-modules-projectuiapi-base</artifactId>
             <version>${version.netbeans}</version>
         </dependency>
+        <dependency>
+            <groupId>javax.annotation</groupId>
+            <artifactId>javax.annotation-api</artifactId>
+            <version>1.3.2</version>
+        </dependency>
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
