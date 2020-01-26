@@ -2,9 +2,9 @@ package me.dsnet.quickopener.actions;
 
 import com.sessonad.oscommands.commands.Commands;
 import java.awt.event.ActionListener;
-import me.dsnet.quickopener.QuickMessages;
 import java.io.File;
 import me.dsnet.quickopener.PathFinder;
+import me.dsnet.quickopener.QuickMessages;
 import me.dsnet.quickopener.prefs.PrefsUtil;
 import me.dsnet.quickopener.prefs.QuickOpenerProperty;
 import org.netbeans.api.annotations.common.StaticResource;
@@ -34,7 +34,7 @@ import org.openide.util.NbBundle.Messages;
 public final class FileSystem extends AbstractFileContextAwareAction implements ActionListener {
 
     @StaticResource
-    private static final String ICON = "me/dsnet/quickopener/icons/folder.png";
+    private static final String ICON = "me/dsnet/quickopener/icons/folder16.png";
 
     @Override
     public String getName() {

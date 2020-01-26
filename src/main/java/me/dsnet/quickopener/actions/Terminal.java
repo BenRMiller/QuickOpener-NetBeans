@@ -2,11 +2,11 @@ package me.dsnet.quickopener.actions;
 
 import com.sessonad.oscommands.commands.Commands;
 import java.awt.event.ActionListener;
+import java.io.File;
 import me.dsnet.quickopener.PathFinder;
 import me.dsnet.quickopener.QuickMessages;
 import me.dsnet.quickopener.prefs.PrefsUtil;
 import me.dsnet.quickopener.prefs.QuickOpenerProperty;
-import java.io.File;
 import org.netbeans.api.annotations.common.StaticResource;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
@@ -35,7 +35,7 @@ import org.openide.util.Utilities;
 public final class Terminal extends AbstractFileContextAwareAction implements ActionListener {
 
     @StaticResource
-    private static final String ICON = "me/dsnet/quickopener/icons/terminal.png";
+    private static final String ICON = "me/dsnet/quickopener/icons/terminal16.png";
 
     @Override
     public String getName() {

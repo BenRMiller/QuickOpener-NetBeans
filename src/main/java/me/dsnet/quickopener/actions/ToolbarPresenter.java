@@ -4,15 +4,15 @@
  */
 package me.dsnet.quickopener.actions;
 
-import me.dsnet.quickopener.actions.popup.CustomCommandPopupAction;
-import me.dsnet.quickopener.actions.popup.CustomFileSystemPopupAction;
-import me.dsnet.quickopener.actions.popup.CustomTerminalPopupAction;
 import java.awt.Component;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPopupMenu;
+import me.dsnet.quickopener.actions.popup.CustomCommandPopupAction;
+import me.dsnet.quickopener.actions.popup.CustomFileSystemPopupAction;
+import me.dsnet.quickopener.actions.popup.CustomTerminalPopupAction;
 import org.openide.awt.DropDownButtonFactory;
 import org.openide.util.ImageUtilities;
 import org.openide.util.NbBundle.Messages;
@@ -22,10 +22,10 @@ import org.openide.util.actions.Presenter;
 public final class ToolbarPresenter implements Presenter.Toolbar {
     @Override
     public Component getToolbarPresenter() {
-        final ImageIcon run16 = ImageUtilities.loadImageIcon("me/dsnet/quickopener/icons/run.png", false);
+        final ImageIcon run16 = ImageUtilities.loadImageIcon("me/dsnet/quickopener/icons/run16.png", false);
         final ImageIcon run24 = ImageUtilities.loadImageIcon("me/dsnet/quickopener/icons/run24.png", false);
-        final ImageIcon folder = new ImageIcon(ImageUtilities.mergeImages(ImageUtilities.loadImage("me/dsnet/quickopener/icons/folder.png", false), ImageUtilities.loadImage("me/dsnet/quickopener/icons/run.png", false), 7, 7));
-        final ImageIcon terminal = new ImageIcon(ImageUtilities.mergeImages(ImageUtilities.loadImage("me/dsnet/quickopener/icons/terminal.png", false), ImageUtilities.loadImage("me/dsnet/quickopener/icons/run.png", false), 7, 7));
+        final ImageIcon folder = new ImageIcon(ImageUtilities.mergeImages(ImageUtilities.loadImage("me/dsnet/quickopener/icons/folder16.png", false), ImageUtilities.loadImage("me/dsnet/quickopener/icons/run16.png", false), 7, 7));
+        final ImageIcon terminal = new ImageIcon(ImageUtilities.mergeImages(ImageUtilities.loadImage("me/dsnet/quickopener/icons/terminal16.png", false), ImageUtilities.loadImage("me/dsnet/quickopener/icons/run16.png", false), 7, 7));
 
         CustomCommandPopupAction cAction = new CustomCommandPopupAction("Launch custom command...", run16);
         CustomTerminalPopupAction tAction = new CustomTerminalPopupAction("Open shell in...", terminal);

@@ -27,15 +27,15 @@ import me.dsnet.quickopener.PathFinder;
 import me.dsnet.quickopener.actions.AbstractFileContextAwareAction;
 import org.netbeans.api.annotations.common.StaticResource;
 import org.openide.awt.ActionID;
-import org.openide.awt.ActionRegistration;
-import org.openide.util.NbBundle.Messages;
 import org.openide.awt.ActionReference;
 import org.openide.awt.ActionReferences;
+import org.openide.awt.ActionRegistration;
 import org.openide.awt.NotificationDisplayer;
 import org.openide.filesystems.FileObject;
 import org.openide.loaders.DataObject;
 import org.openide.loaders.DataShadow;
 import org.openide.nodes.Node;
+import org.openide.util.NbBundle.Messages;
 import org.openide.windows.Mode;
 import org.openide.windows.TopComponent;
 import org.openide.windows.WindowManager;
@@ -57,7 +57,7 @@ public class DefaultAppPopupAction extends AbstractFileContextAwareAction implem
     private static final Logger LOG = Logger.getLogger(DefaultAppPopupAction.class.getName());
 
     @StaticResource
-    private static final String ICON = "me/dsnet/quickopener/icons/default.png";
+    private static final String ICON = "me/dsnet/quickopener/icons/default16.png";
 
     @Override
     public void actionPerformed(ActionEvent ev) {

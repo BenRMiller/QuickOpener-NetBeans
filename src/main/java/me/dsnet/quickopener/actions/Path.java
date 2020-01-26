@@ -35,7 +35,7 @@ import org.openide.util.NbBundle.Messages;
 public final class Path extends AbstractFileContextAwareAction implements ActionListener{
 
     @StaticResource
-    private static final String ICON = "me/dsnet/quickopener/icons/path.png";
+    private static final String ICON = "me/dsnet/quickopener/icons/path16.png";
 
     @Override
     public String getName() {

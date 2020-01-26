@@ -5,6 +5,8 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.AbstractAction;
 import javax.swing.Icon;
 import org.openide.util.NbBundle;
@@ -20,6 +22,8 @@ import org.openide.util.NbBundle;
 //})
 @NbBundle.Messages("CTL_CustomTerminalPopupAction=Open shell in...")
 public class CustomTerminalPopupAction extends AbstractAction implements ActionListener{
+
+    private static final Logger LOG = Logger.getLogger(CustomTerminalPopupAction.class.getName());
     
     public CustomTerminalPopupAction() {
     }
@@ -51,7 +55,9 @@ public class CustomTerminalPopupAction extends AbstractAction implements ActionL
                     if (userCommand != null && !userCommand.isEmpty()) {
                         Commands.getPlatform().openInShell(userCommand);
                     }
-                } catch (Exception ex) {}
+                } catch (Exception ex) {
+                    LOG.log(Level.SEVERE, "Error opening Custom Terminal dialog", ex);
+                }
             }
         });
     }
