@@ -4,13 +4,13 @@
  */
 package me.dsnet.quickopener.actions.popup;
 
-import me.dsnet.quickopener.PathFinder;
-import me.dsnet.quickopener.QuickMessages;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import javax.swing.*;
 import static me.dsnet.quickopener.LAFUtils.convertToLink;
+import me.dsnet.quickopener.PathFinder;
+import me.dsnet.quickopener.QuickMessages;
 import org.openide.DialogDisplayer;
 import org.openide.NotifyDescriptor;
 import org.openide.util.ImageUtilities;
@@ -19,10 +19,8 @@ import org.openide.util.ImageUtilities;
  *
  * @author SessonaD
  */
-public class DialogueFileSelector extends javax.swing.JDialog {
+public class DialogueFileSelector extends PopupActionDialog {
 
-    public static final int RET_CANCEL = 0;
-    public static final int RET_OK = 1;
     public static final int CHARSNUMBER = 80;
     private String selectioPath;
     private String mynetbeansPath;
@@ -63,7 +61,7 @@ public class DialogueFileSelector extends javax.swing.JDialog {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                doClose(RET_CANCEL);
+                doClose(ReturnStatus.CANCEL);
             }
         });
     }
@@ -89,13 +87,6 @@ public class DialogueFileSelector extends javax.swing.JDialog {
         return cmdTextField.getText();
     }
     
-    /**
-     * @return the return status of this dialog - one of RET_OK or RET_CANCEL
-     */
-    public int getReturnStatus() {
-        return returnStatus;
-    }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -317,7 +308,7 @@ public class DialogueFileSelector extends javax.swing.JDialog {
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
         File file= new File(cmdTextField.getText());
         if(file.exists()){
-            doClose(RET_OK);
+            doClose(ReturnStatus.OK);
         }else{
             NotifyDescriptor d = new NotifyDescriptor.Message(QuickMessages.NOT_IN_FILE_SYSTEM,NotifyDescriptor.WARNING_MESSAGE);
             DialogDisplayer.getDefault().notify(d);             
@@ -326,14 +317,14 @@ public class DialogueFileSelector extends javax.swing.JDialog {
     }//GEN-LAST:event_okButtonActionPerformed
     
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
-        doClose(RET_CANCEL);
+        doClose(ReturnStatus.CANCEL);
     }//GEN-LAST:event_cancelButtonActionPerformed
 
     /**
      * Closes the dialog
      */
     private void closeDialog(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_closeDialog
-        doClose(RET_CANCEL);
+        doClose(ReturnStatus.CANCEL);
     }//GEN-LAST:event_closeDialog
 
     private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
@@ -375,12 +366,6 @@ public class DialogueFileSelector extends javax.swing.JDialog {
             }
         }
     }//GEN-LAST:event_browseButtonActionPerformed
-    
-    private void doClose(int retStatus) {
-        returnStatus = retStatus;
-        setVisible(false);
-        dispose();
-    }
 
     /**
      * @param args the command line arguments
@@ -445,5 +430,4 @@ public class DialogueFileSelector extends javax.swing.JDialog {
     private javax.swing.JTable jTable2;
     private javax.swing.JButton okButton;
     // End of variables declaration//GEN-END:variables
-    private int returnStatus = RET_CANCEL;
 }

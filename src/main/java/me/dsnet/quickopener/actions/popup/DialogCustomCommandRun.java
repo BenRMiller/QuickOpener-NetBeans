@@ -22,7 +22,7 @@ import org.openide.util.NbBundle;
  * @author SessonaD
  */
 @NbBundle.Messages("CTL_DialogCustomCommandRunPreview=")
-public class DialogCustomCommandRun extends javax.swing.JDialog {
+public class DialogCustomCommandRun extends PopupActionDialog {
 
     public static final int CHARSNUMBER = 80;
     private static final PropertyTableModel tableModel = new PropertyTableModel("command");
@@ -67,7 +67,7 @@ public class DialogCustomCommandRun extends javax.swing.JDialog {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                doClose();
+                doClose(ReturnStatus.CANCEL);
             }
         });
     }
@@ -77,7 +77,7 @@ public class DialogCustomCommandRun extends javax.swing.JDialog {
         if (null != selectedCommand) {
             boolean ok = new RunCommand(selectedCommand).actionPerformed();
             if (ok) {
-                doClose();
+                doClose(ReturnStatus.OK);
             }
         }
     }
@@ -215,14 +215,14 @@ public class DialogCustomCommandRun extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
-        doClose();
+        doClose(ReturnStatus.CANCEL);
     }//GEN-LAST:event_cancelButtonActionPerformed
 
     /**
      * Closes the dialog
      */
     private void closeDialog(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_closeDialog
-        doClose();
+        doClose(ReturnStatus.OK);
     }//GEN-LAST:event_closeDialog
 
     public QuickOpenerCommand getSelectedCommand() {
@@ -246,11 +246,6 @@ public class DialogCustomCommandRun extends javax.swing.JDialog {
         reinitModel();
         jTable2.requestFocusInWindow();
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void doClose() {
-        setVisible(false);
-        dispose();
-    }
 
     /**
      * @param args the command line arguments
@@ -313,5 +308,9 @@ public class DialogCustomCommandRun extends javax.swing.JDialog {
         if (tableModel.getRowCount() >= 1) {
             jTable2.changeSelection(0, 0, false, false);
         }
+    }
+
+    public String getCommand() {
+        return null;
     }
 }

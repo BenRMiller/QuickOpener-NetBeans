@@ -1,29 +1,19 @@
 package me.dsnet.quickopener.actions.popup;
 
-import java.awt.Dimension;
-import java.awt.HeadlessException;
-import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.AbstractAction;
 import javax.swing.Icon;
-import org.openide.awt.ActionID;
-import org.openide.awt.ActionReference;
-import org.openide.awt.ActionRegistration;
-import org.openide.util.NbBundle;
+import org.openide.windows.WindowManager;
 
 /**
  *
  * @author SessonaD
  */
+/*
 @NbBundle.Messages("CTL_CustomCommandPopupAction=Launch custom command...")
 @ActionID(id = "me.dsnet.quickopener.actions.popup.CustomCommandPopupAction", category = "Tools")
 @ActionRegistration(displayName = "#CTL_CustomCommandPopupAction", iconInMenu = true)
 @ActionReference(path = "Shortcuts", name = "O-5")
-public class CustomCommandPopupAction extends AbstractAction implements ActionListener {
-
-    public CustomCommandPopupAction() {
-    }
+*/
+public class CustomCommandPopupAction extends PopupAction {
 
     public CustomCommandPopupAction(String name) {
         super(name);
@@ -34,23 +24,12 @@ public class CustomCommandPopupAction extends AbstractAction implements ActionLi
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
+    protected PopupActionDialog initDialog() {
+        return new DialogCustomCommandRun(WindowManager.getDefault().getMainWindow(), true);    
+    }
 
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    DialogCustomCommandRun dialogue = new DialogCustomCommandRun(null, true);
-                    final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-                    final int x = (screenSize.width - dialogue.getWidth()) / 2;
-                    final int y = (screenSize.height - dialogue.getHeight()) / 2;
-                    dialogue.setLocation(x, y);
-                    dialogue.setVisible(true);
-
-                } catch (HeadlessException ex) {
-                }
-            }
-        });
+    @Override
+    protected void executeCommand(String command) throws Exception {
     }
 
 }
