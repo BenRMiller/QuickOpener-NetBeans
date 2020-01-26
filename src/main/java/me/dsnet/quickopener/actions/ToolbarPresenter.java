@@ -27,7 +27,7 @@ public final class ToolbarPresenter implements Presenter.Toolbar {
         final ImageIcon folder = new ImageIcon(ImageUtilities.mergeImages(ImageUtilities.loadImage("me/dsnet/quickopener/icons/folder16.png", false), ImageUtilities.loadImage("me/dsnet/quickopener/icons/run16.png", false), 7, 7));
         final ImageIcon terminal = new ImageIcon(ImageUtilities.mergeImages(ImageUtilities.loadImage("me/dsnet/quickopener/icons/terminal16.png", false), ImageUtilities.loadImage("me/dsnet/quickopener/icons/run16.png", false), 7, 7));
 
-        CustomCommandPopupAction cAction = new CustomCommandPopupAction("Launch custom command...", run16);
+        CustomCommandPopupAction cAction = new CustomCommandPopupAction("Launch custom command...");
         CustomTerminalPopupAction tAction = new CustomTerminalPopupAction("Open shell in...", terminal);
         CustomFileSystemPopupAction fAction = new CustomFileSystemPopupAction("Open filesystem in...", folder);
 

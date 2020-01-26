@@ -4,26 +4,37 @@ import com.sessonad.oscommands.commands.Commands;
 import java.io.File;
 import java.util.logging.Logger;
 import javax.swing.Icon;
+import org.openide.awt.ActionID;
+import org.openide.awt.ActionReference;
+import org.openide.awt.ActionReferences;
+import org.openide.awt.ActionRegistration;
+import org.openide.util.NbBundle;
 import org.openide.windows.WindowManager;
 
 /**
  *
  * @author SessonaD
  */
-//@ActionID(category = "Tools",id = "com.sessonad.quickopener.actions.popup.CustomFileSystemPopupAction")
-//@ActionRegistration(displayName = "#CTL_CustomFileSystemPopupAction")
-//@ActionReferences({
-//    @ActionReference(path = "Shortcuts", name = "O-5")
-//})
-/*
+@ActionID(
+    category = "File",
+    id = "me.dsnet.quickopener.actions.popup.CustomFileSystemPopupAction"
+)
+@ActionRegistration(
+    displayName = "#CTL_CustomFileSystemPopupAction", lazy = false
+)
+@ActionReferences({
+    @ActionReference(path = "Menu/File", position = 955),
+    @ActionReference(path = "Loaders/Languages/Actions", position = 1000),
+    @ActionReference(path = "Shortcuts", name = "O-6")
+})
 @NbBundle.Messages("CTL_CustomFileSystemPopupAction=Open filesystem in...")
-@ActionID(id = "me.dsnet.quickopener.actions.popup.CustomFileSystemPopupAction", category = "Tools")
-@ActionRegistration(displayName = "#CTL_CustomFileSystemPopupAction", iconInMenu = true)
-@ActionReference(path = "Shortcuts", name = "O-6")
-*/
 public class CustomFileSystemPopupAction extends PopupAction {
 
     private static final Logger LOG = Logger.getLogger(CustomFileSystemPopupAction.class.getName());
+
+    public CustomFileSystemPopupAction() {
+        super();
+    }
     
     public CustomFileSystemPopupAction(String name) {
         super(name);

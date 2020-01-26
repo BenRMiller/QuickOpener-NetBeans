@@ -1,19 +1,35 @@
 package me.dsnet.quickopener.actions.popup;
 
 import javax.swing.Icon;
+import org.openide.awt.ActionID;
+import org.openide.awt.ActionReference;
+import org.openide.awt.ActionReferences;
+import org.openide.awt.ActionRegistration;
+import org.openide.util.NbBundle;
 import org.openide.windows.WindowManager;
 
 /**
  *
  * @author SessonaD
  */
-/*
-@NbBundle.Messages("CTL_CustomCommandPopupAction=Launch custom command...")
-@ActionID(id = "me.dsnet.quickopener.actions.popup.CustomCommandPopupAction", category = "Tools")
-@ActionRegistration(displayName = "#CTL_CustomCommandPopupAction", iconInMenu = true)
-@ActionReference(path = "Shortcuts", name = "O-5")
-*/
+@ActionID(
+    category = "File",
+    id = "me.dsnet.quickopener.actions.popup.CustomCommandPopupAction"
+)
+@ActionRegistration(
+    displayName = "#CTL_CustomCommandPopupAction", lazy = false
+)
+@ActionReferences({
+    @ActionReference(path = "Menu/File", position = 955),
+    @ActionReference(path = "Loaders/Languages/Actions", position = 1000),
+    @ActionReference(path = "Shortcuts", name = "O-5")
+})
+@NbBundle.Messages("CTL_CustomCommandPopupAction=Launch Custom Command...")
 public class CustomCommandPopupAction extends PopupAction {
+
+    public CustomCommandPopupAction() {
+        super();
+    }
 
     public CustomCommandPopupAction(String name) {
         super(name);

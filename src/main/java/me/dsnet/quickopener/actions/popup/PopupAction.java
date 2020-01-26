@@ -16,6 +16,10 @@ public abstract class PopupAction extends AbstractAction implements ActionListen
 
     private static final Logger LOG = Logger.getLogger(PopupAction.class.getName());
 
+    public PopupAction() {
+        super();
+    }
+
     public PopupAction(String name) {
         super(name);
     }
